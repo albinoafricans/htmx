@@ -78,6 +78,74 @@ backend
     });
 
 
+## utiliando o swap
+
+<body>
+    <!-- swap - ele substitui a div #conteudo-swap para o retorno -->
+    <!-- dessa forma podemos incluir o html sem ficarmos refem do html que ja esta na pagina -->
+     <button
+      hx-get="/trocar-conteudo"
+      hx-target="#conteudo-swap"
+      hx-swap="outerHTML"
+     >carregar conteúdo</button>
+     <div id="conteudo-swap"></div>
+</body>
+
+
+## utilizando o vals 
+
+- frontend
+
+<body>
+     <!-- hx-vals - quando precisarmos enviar valores extra
+     adicionar mais valores ao req.body 
+     - enviado via {chave:valor} o conteúdo adicional 
+     -->
+    <form 
+        hx-post="/valores-adicionais" 
+        hx-trigger="submit" 
+        hx-target="#valores-adicionais"
+        hx-vals='{"valorExtra": "Este é um valor adicional"}'
+        >
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" >
+        <button>enviar</button>
+    </form>
+    <div id="valores-adicionais"></div>
+</body>
+
+- backend
+
+app.post("/valores-adicionais", (req, res) => {
+  const { valorExtra } = req.body;
+  res.send(`<p>Valor adicional recebido: ${valorExtra}</p>`);
+});
+
+
+## polling
+
+<body>
+    <!-- Polling - programar requests a cada x tempo no  backend -->
+    <div 
+        hx-get="/tempo-servidor" 
+        hx-trigger="every 5s" 
+        hx-target="#tempo-servidor"
+    >
+    <p>carregando hora do servidor ...</p>
+    </div>
+    <div id="tempo-servidor"></div>
+</body>
+
+
+## validações
+
+
+
+
 ## referências
 
 https://htmx.org/
+
+[CURSO DE HTMX COM PROJETO - APRENDA HTMX EM 1 HORA](https://www.youtube.com/watch?v=hsZzlmPdrIU&list=PLnDvRpP8BnexcN1wwjFfPNGyLiRKrTlwm)
+
+https://github.com/matheusbattisti/curso_htmx_yt
