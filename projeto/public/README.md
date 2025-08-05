@@ -44,6 +44,38 @@ referenciamos o script do HTMX via CDN em
 
     npm start
 
+## atributos hx-get - GET
+
+<body>
+    <!--hx-get - trabalhando com o verbo - GET -->
+    <!--hx-trigger -->
+    <!--hx-target -->
+    <button hx-get="/carregar-conteudo">carregar conteúdo via botão</button>
+    <p hx-get="/carregar-conteudo" hx-trigger="click[ctrlKey]">carregar conteúdo via trigger</p>
+    <button hx-get="/carregar-conteudo" hx-target="#conteudo-get">carregar conteúdo via botão</button>
+    <div id="conteudo-get"></div>
+</body>
+
+
+## atributos tx-post - POST
+
+
+frontend
+    <form hx-post="/enviar-formulario" hx-trigger="submit">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" >  
+        <!-- o conteúdo do atributo NAME do input que sera enviado ao backend, devidamente configurado, como exemplificado abaixo -->
+        <button>enviar</button>
+    </form>
+
+backend
+    app.post("/enviar-formulario", (req, res) => {
+    const { nome } = req.body;
+
+    // processamento com o dado
+
+    res.send(`<p>Formulário enviado. Nome: ${nome}</p>`);
+    });
 
 
 ## referências
