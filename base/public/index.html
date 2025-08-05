@@ -27,13 +27,15 @@
     <!-- form -> req.body.algumaChave  - no caso por estarmos utilizando o express  -->
     <!-- hx-trigger -->
 
-    <form hx-post="/enviar-formulario" hx-trigger="submit">
+    <form hx-post="/enviar-formulario" hx-trigger="submit" hx-target="#conteudo-post">
         <label for="nome">Nome:</label>
 
         <input type="text" name="nome" >
 
         <button>enviar</button>
     </form>
+
+    <div id="conteudo-post"></div>
 
 </body>
 </html>
