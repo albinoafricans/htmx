@@ -66,5 +66,21 @@
     <div id="valores-adicionais"></div>
 
 
+    <!-- Polling - programar requests a cada x tempo no  backend -->
+
+    <div 
+        hx-get="/tempo-servidor" 
+        hx-trigger="every 5s" 
+        hx-target="#tempo-servidor"
+    >
+    <p>carregando hora do servidor ...</p>
+
+    </div>
+    <div id="tempo-servidor"></div>
+
+
+    
+
+
 </body>
 </html>
