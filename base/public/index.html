@@ -37,5 +37,17 @@
 
     <div id="conteudo-post"></div>
 
+
+    <!-- swap - ele substitui a div #conteudo-swap para o retorno -->
+    <!-- dessa forma podemos incluir o html sem ficarmos refem do html que ja esta na pagina -->
+     <button
+      hx-get="/trocar-conteudo"
+      hx-target="#conteudo-swap"
+      hx-swap="outerHTML"
+     
+     >carregar conteúdo</button>
+
+     <div id="conteudo-swap"></div>
+
 </body>
 </html>
