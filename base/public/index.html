@@ -10,7 +10,15 @@
     <h1>Curso de HTMX</h1>
 
     <!--hx-get trazer dados do backend - GET-->
-    <button hx-get="/carregar-conteudo">carregar conteúdo</button>
+    <!--hx-trigger -->
+    <!--hx-target -->
 
+    <button hx-get="/carregar-conteudo">carregar conteúdo via botão</button>
+
+    <p hx-get="/carregar-conteudo" hx-trigger="click[ctrlKey]">carregar conteúdo via trigger</p>
+
+    <button hx-get="/carregar-conteudo" hx-target="#conteudo-get">carregar conteúdo via botão</button>
+
+    <div id="conteudo-get"></div>
 </body>
 </html>
